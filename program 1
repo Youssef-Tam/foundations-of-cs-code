@@ -1,16 +1,16 @@
-def is_prime(n):  
+def is_prime(n): #"This function will check if the number is prime"#
  if n <= 1:
    return False
  for i in range(2, int(n**0.5) + 1):
    if n % i == 0:
      return False
  return True
-def factor_modulus(N):  
+def factor_modulus(N): #" This function attempts to factor a Modulus N using trial divsion "#
  for i in range(2, int(N**0.5) + 1):
    if N % i == 0:
      return (i, N // i)  
  return None 
-N = 121  
+N = 121  #"Test case"# 
 factors = factor_modulus(N)
 if factors:
  print("N factored:", factors[0], "and", factors[1])
