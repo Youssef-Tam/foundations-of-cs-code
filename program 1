@@ -1,0 +1,18 @@
+def is_prime(n):  
+ if n <= 1:
+   return False
+ for i in range(2, int(n**0.5) + 1):
+   if n % i == 0:
+     return False
+ return True
+def factor_modulus(N):  
+ for i in range(2, int(N**0.5) + 1):
+   if N % i == 0:
+     return (i, N // i)  
+ return None 
+N = 121  
+factors = factor_modulus(N)
+if factors:
+ print("N factored:", factors[0], "and", factors[1])
+else:
+ print("N not factored within this key space.")
