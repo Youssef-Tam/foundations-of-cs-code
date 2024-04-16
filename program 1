@@ -10,9 +10,28 @@ def factor_modulus(N): #" This function attempts to factor a Modulus N using tri
    if N % i == 0:
      return (i, N // i)  
  return None 
-N = 121  #"Test case"# 
+N = 133 #"Test case"# 
+E = 29
 factors = factor_modulus(N)
 if factors:
  print("N factored:", factors[0], "and", factors[1])
 else:
  print("N not factored within this key space.")
+P = factors[0]
+Q = factors[1]
+T = (P-1)*(Q-1)
+print(" The Totient is =",T)
+
+def modinv(a, m):
+    m0, x0, x1 = m, 0, 1
+    while a > 1:
+        q = a // m
+        m, a = a % m, m
+        x0, x1 = x1 - q * x0, x0
+    return x1 + m0 if x1 < 0 else x1
+
+def calculate_d(E, T):
+    d = modinv(E, T)
+    return d
+d = calculate_d(E, T)
+print("Private exponent d:", d)
