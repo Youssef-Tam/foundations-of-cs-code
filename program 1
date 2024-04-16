@@ -21,17 +21,12 @@ P = factors[0]
 Q = factors[1]
 T = (P-1)*(Q-1)
 print(" The Totient is =",T)
-
-def modinv(a, m):
-    m0, x0, x1 = m, 0, 1
-    while a > 1:
-        q = a // m
-        m, a = a % m, m
-        x0, x1 = x1 - q * x0, x0
-    return x1 + m0 if x1 < 0 else x1
-
-def calculate_d(E, T):
-    d = modinv(E, T)
-    return d
-d = calculate_d(E, T)
+def egcd(a, b):
+if a == 0:
+   return (b, 0, 1)
+ else:
+   g, y, x = egcd(b % a, a)
+   return (g, x - (b // a) * y, y)
+gcd, x, y = egcd(E, T)
+d= x 
 print("Private exponent d:", d)
