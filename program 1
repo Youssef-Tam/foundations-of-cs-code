@@ -13,11 +13,11 @@ def factor_modulus(N): #" This function attempts to factor a Modulus N using tri
 N = 133 #"Test case"# 
 E = 29
 factors = factor_modulus(N)
-if factors:
+if factors:# Print factors if found
  print("N factored:", factors[0], "and", factors[1])
 else:
  print("N not factored within this key space.")
-P = factors[0]
+P = factors[0]# Assign values of P and Q, then calculate Totient T
 Q = factors[1]
 T = (P-1)*(Q-1)
 print(" The Totient is =",T)
