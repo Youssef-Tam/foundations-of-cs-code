@@ -27,6 +27,21 @@ if a == 0:
    return (b, 0, 1)
  else:
    g, y, x = egcd(b % a, a)
+ return (g, x - (b // a) * y, y)
+gcd, x, y = egcd(E, T)
+d= x 
+end_time = time.time()
+print("Private exponent d:", d)
+cipher = pow(message, E, N)
+print(" encrypted message = ",cipher)
+decipher = pow(cipher,d,N)
+print(" decrypted message = ",decipher)
+
+
+runtime_factorization = end_time - start_time
+
+
+print("Runtime for factorization:", runtime_factorization)
 
 
 BRUTE FORCE APPROACH
@@ -59,9 +74,8 @@ for i in range(2, int(N**0.5) + 1):
 return None   
 
 N = 187 
-
 E = 7 
-
+message = 55
 factors = factor_modulus(N) 
 
   
@@ -73,23 +87,20 @@ P = factors[0]
 Q = factors[1] 
 
 T = (P-1)*(Q-1) 
-
+print(" The Totient is =",T)
+print(" The message is = ",message)
 def brute_force_d(E, T): 
-
     d = 1 
-
     while True: 
-
         if (E * d) % T == 1: 
-
             return d 
-
         d += 1 
-
-d = brute_force_d(E, T) 
-
-print("Brute forced private exponent d:", d) 
-   return (g, x - (b // a) * y, y)
-gcd, x, y = egcd(E, T)
-d= x 
-print("Private exponent d:", d)
+d = brute_force_d(E, T)   
+end_time = time.time()   
+cipher = pow(message, E, N)
+print("Brute forced private exponent d:", d)
+cipher = pow(message, E, N)
+print(" encrypted message = ",cipher)
+decipher = pow(cipher,d,N)
+print(" decrypted message = ",decipher)
+print("Runtime for brute_force_d:", end_time - start_time, "seconds")
