@@ -12,6 +12,7 @@ def factor_modulus(N): #" This function attempts to factor a Modulus N using tri
  return None 
 N = 133 #"Test case"# 
 E = 29
+message = 54
 factors = factor_modulus(N)
 if factors:# Print factors if found
  print("N factored:", factors[0], "and", factors[1])
