@@ -26,6 +26,68 @@ if a == 0:
    return (b, 0, 1)
  else:
    g, y, x = egcd(b % a, a)
+
+
+BRUTE FORCE APPROACH
+
+
+
+
+def is_prime(n):  
+
+if n <= 1: 
+
+   return False 
+
+for i in range(2, int(n**0.5) + 1): 
+
+   if n % i == 0: 
+
+     return False 
+
+return True 
+
+def factor_modulus(N):   
+
+for i in range(2, int(N**0.5) + 1): 
+
+   if N % i == 0: 
+
+     return (i, N // i)   
+
+return None   
+
+N = 187 
+
+E = 7 
+
+factors = factor_modulus(N) 
+
+  
+
+if factors: 
+
+P = factors[0] 
+
+Q = factors[1] 
+
+T = (P-1)*(Q-1) 
+
+def brute_force_d(E, T): 
+
+    d = 1 
+
+    while True: 
+
+        if (E * d) % T == 1: 
+
+            return d 
+
+        d += 1 
+
+d = brute_force_d(E, T) 
+
+print("Brute forced private exponent d:", d) 
    return (g, x - (b // a) * y, y)
 gcd, x, y = egcd(E, T)
 d= x 
